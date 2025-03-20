@@ -27,3 +27,12 @@ export async function GetCartoonById(id) {
   const data = await payload.payload;
   return data;
 }
+
+export async function SearchCartoonByTitle(title) {
+  const res = await fetch(
+    `https://nextjs-homework005.vercel.app/api/cartoon?search=${title}`
+  );
+  const payload = await res.json();
+  const data = await payload.payload;
+  return data;
+}

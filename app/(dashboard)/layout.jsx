@@ -1,5 +1,6 @@
 import DashboardSidebar from "@/components/dashboard-sidebar";
 import DropdownButton from "@/components/dropdown";
+import SearchField from "@/components/searchField";
 
 import { Button } from "@heroui/react";
 import Link from "next/link";
@@ -8,7 +9,7 @@ import React from "react";
 export default function DashboardLayout({ children }) {
   return (
     <>
-      <div className="grid grid-cols-12 h-screen bg-red-100 overflow-hidden">
+      <div className="grid grid-cols-12 bg-red-100 h-screen overflow-hidden">
         {/* Sidebar */}
         <div className="col-span-2">
           <DashboardSidebar />
@@ -16,17 +17,18 @@ export default function DashboardLayout({ children }) {
         {/*Main Content*/}
         <div className="col-span-10 max-h-fit overflow-auto">
           {/*Search-bar*/}
-          <div className="relative w-[93%] transition-all my-10 mx-12">
+          <SearchField />
+          {/* <div className="w-[93%] mx-12 my-10 relative transition-all">
             <input
               type="text"
               placeholder="Search..."
               id="searchInput"
-              className="w-full h-12 py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full outline-none border-none transition-all border-gray-300"
+              className="bg-white border border-gray-300 border-none h-12 rounded-full text-gray-700 w-full outline-none pl-10 pr-4 py-2 transition-all"
             />
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+            <div className="flex absolute inset-y-0 items-center left-0 pl-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 text-gray-400 transition-all"
+                className="h-5 text-gray-400 w-5 transition-all"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -39,7 +41,7 @@ export default function DashboardLayout({ children }) {
                 />
               </svg>
             </div>
-          </div>
+          </div> */}
           {children}
         </div>
       </div>

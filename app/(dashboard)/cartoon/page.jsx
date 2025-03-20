@@ -4,6 +4,7 @@ import { AllCartoonService } from "@/service/book_service";
 import {
   AllCartoonCategoryService,
   FilterCartoonById,
+  SearchCartoonByTitle,
 } from "@/service/cartoon_service";
 import { AllCategoriesService } from "@/service/category_service";
 import { Button } from "@heroui/react";
@@ -11,14 +12,24 @@ import React from "react";
 
 export default async function Cartoon({ searchParams }) {
   const { CatId } = await searchParams;
+  const { search } = await searchParams;
   const cartoon = await AllCartoonService();
   const allCartoonCategories = await AllCartoonCategoryService();
   const filterCartoonById = await FilterCartoonById(CatId);
-  console.log(filterCartoonById);
+  const searchCartoon = await SearchCartoonByTitle(search);
   const filterData = CatId ? filterCartoonById : cartoon;
   const filterTitle = CatId
     ? allCartoonCategories[CatId - 1]?.cartoon_genre
     : "Old School Cartoons";
+
+  let mainData;
+  if (search) {
+    mainData = searchCartoon;
+  } else if (CatId) {
+    mainData = filterData;
+  } else {
+    mainData = cartoon;
+  }
   return (
     <>
       {/*Header*/}
@@ -34,7 +45,7 @@ export default async function Cartoon({ searchParams }) {
         <br />
         <hr />
         <div className="grid grid-cols-3">
-          {filterData?.map((data) => (
+          {mainData?.map((data) => (
             <CartoonCard key={data.id} data={data} />
           ))}
         </div>

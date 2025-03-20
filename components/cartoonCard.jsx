@@ -13,7 +13,7 @@ export default function CartoonCard({ data }) {
         <img
           src={image}
           alt={ct_title}
-          className="h-[90%] rounded-xl shadow-md w-80 object-cover"
+          className="h-[90%] rounded-2xl shadow-md w-80 object-cover"
         />
 
         <h1 className="text-[#0b3954] text-md font-bold mt-2">{ct_title}</h1>
