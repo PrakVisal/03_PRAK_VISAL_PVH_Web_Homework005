@@ -21,7 +21,7 @@ export async function FilterCartoonById(id) {
 
 export async function GetCartoonById(id) {
   const res = await fetch(
-    `https://nextjs-homework005.vercel.app/api/cartoon?genre=${id}`
+    `https://nextjs-homework005.vercel.app/api/cartoon/${id}`
   );
   const payload = await res.json();
   const data = await payload.payload;

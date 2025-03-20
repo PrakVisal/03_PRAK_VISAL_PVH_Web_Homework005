@@ -6,7 +6,9 @@ export default function CartoonCard({ data }) {
   const newYear = published_year?.split("-")[0] || "Unknown";
 
   return (
-    <Link href={`/cartoon/${data.id}`}>
+    <Link
+      href={`/read-full-article/${data.id}?type=cartoon&name=old+school+cartoon&title=${data.ct_title}`}
+    >
       <div className="rounded-xl max-w-2xl ml-14 mt-10">
         <img
           src={image}

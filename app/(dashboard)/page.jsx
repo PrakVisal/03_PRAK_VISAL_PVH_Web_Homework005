@@ -16,7 +16,6 @@ export default function Home() {
           <Button className="bg-gray-100 h-10 rounded-lg text-[#087E8B] w-28 font-bold ml-2">
             Homepage
           </Button>
-          {/* <DropdownButton /> */}
         </div>
         <br />
         <br />

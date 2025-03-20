@@ -16,7 +16,9 @@ export default function FloatingImageCard({ data }) {
             className="h-72 rounded-3xl w-auto shdow-lg"
           />
 
-          <Link href={`/book-categories/${data.id}`}>
+          <Link
+            href={`/read-full-article/${data.id}?type=book&name=book+categories&title=${data.book_title}`}
+          >
             <Button className="bg-[#BFD7EA] rounded-3xl text-[#0B3954] text-md duration-500 font-semibold hover:-translate-y-1 hover:bg-[#087E8B] hover:text-white mt-4 px-7 py-6 transition">
               READ FULL ARTICLE
             </Button>

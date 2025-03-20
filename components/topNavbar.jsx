@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export default function TopNavBar({ titleBook }) {
+export default function TopNavBar({ titleBook, typeCategory }) {
   return (
     <div>
       <div className="flex gap-5 items-center">
@@ -66,7 +66,11 @@ export default function TopNavBar({ titleBook }) {
             d="M8.91 19.92l6.52-6.52c.77-.77.77-2.03 0-2.8L8.91 4.08"
           />
         </svg>
-        <Link href="/book-categories">
+        <Link
+          href={
+            typeCategory == `Book Category` ? `/book-categories` : `/cartoon`
+          }
+        >
           <div className="flex text-lg cursor-pointer font-medium gap-2 group hover:text-deep-teal items-center">
             <svg
               className="group-hover:hidden"
@@ -114,7 +118,7 @@ export default function TopNavBar({ titleBook }) {
                 strokeLinejoin="round"
               />
             </svg>
-            <p className="capitalize">book categories</p>
+            <p className="capitalize">{typeCategory}</p>
           </div>
         </Link>
         <svg
